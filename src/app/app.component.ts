@@ -14,3 +14,4 @@ export class AppComponent {
     this.storedPosts.push(post);
   }
 }
+//This is a test of git
