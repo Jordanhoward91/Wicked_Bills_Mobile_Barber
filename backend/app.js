@@ -6,9 +6,6 @@ const Post = require('./models/post');
 
 const app = express();
 
-<<<<<<< HEAD
-mongoose.connect("mongodb+srv://Max:KLeoWx0ycoFH87rz@cluster0.qld5u.mongodb.net/myFirstDatabase?retryWrites=true&w=majority");
-=======
 mongoose.connect("mongodb+srv://Max:KLeoWx0ycoFH87rz@cluster0.qld5u.mongodb.net/node-angular?retryWrites=true&w=majority")
   .then(() => {
     console.log('Connected to database!');
@@ -16,7 +13,6 @@ mongoose.connect("mongodb+srv://Max:KLeoWx0ycoFH87rz@cluster0.qld5u.mongodb.net/
   .catch(() => {
     console.log('Connection failed!');
   });
->>>>>>> 9d174d5e5414ba80b8f31a30d694de365e55a65f
 
 app.use(bodyParser.json());
 
@@ -38,30 +34,6 @@ app. post("/api/posts", (req, res, next) => {
     title: req.body.title,
     content: req.body.content
   });
-<<<<<<< HEAD
-  console.log(post);
-  res.status(201).json({
-    message: 'Post added successfully'
-  });
-});
-
-app.use('/api/posts', (req, res, next) => {
-  const posts = [
-    {
-      id: "ainfkeanfk516513",
-      title: "First server-side post",
-      content: "This is coming from the server"
-    },
-    {
-      id: "agagerafea123165",
-      title: "Second server-side post",
-      content: "This is coming from the server!"
-    }
-  ];
-  res.status(200).json({
-    message: 'Post fetched successfully!',
-    posts: posts
-=======
   post.save().then(createdPost => {
     res.status(201).json({
       message: "Post added successfully",
@@ -83,7 +55,6 @@ app.delete("/api/posts/:id", (req, res, next) => {
   Post.deleteOne({_id: req.params.id}).then(result => {
     console.log(result);
     res.status(200).json({ message: 'Post deleted!' });
->>>>>>> 9d174d5e5414ba80b8f31a30d694de365e55a65f
   });
 });
 
