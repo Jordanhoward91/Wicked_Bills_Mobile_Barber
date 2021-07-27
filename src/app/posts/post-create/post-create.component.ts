@@ -1,5 +1,6 @@
 import { Component } from "@angular/core";
 import { NgForm } from "@angular/forms";
+import { ActivatedRoute } from "@angular/router";
 
 import { PostsService } from "../posts.service";
 
@@ -12,7 +13,7 @@ export class PostCreateComponent {
   enteredTitle = "";
   enteredContent = "";
 
-  constructor(public postsService: PostsService) {}
+  constructor(public postsService: PostsService, public route:ActivatedRoute) {}
 
   onAddPost(form: NgForm) {
     if(form.invalid) {
